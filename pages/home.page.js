@@ -12,25 +12,19 @@ class HomePage extends Page {
     }
 
     async findFirstProductInStock() {
-        const cardsQuantity = await this.productCards.count();
-
-        for (let i = 0; i < cardsQuantity; i++) {
-
-            const card = this.productCards.nth(i);
-            const productCard = new ProductCardComponent(card);
-            const isOutOfStockVisible = await productCard.isOutOfStock.isVisible();
-
-            if (!isOutOfStockVisible) {
-                return productCard;
-            }
-        }
+        const firstCardInStock = this.page.locator('.card:not(:has([data-testid="out-of-stock"]))').first();
+        return new ProductCardComponent(firstCardInStock);
     }
 
     async selectFirstProductInStock() {
         const firstCard = await this.findFirstProductInStock();
-        const name = await firstCard.productName.textContent();
         
+        if (!firstCard) {
+            throw new Error('There are no products in stock');
+        }
+        const name = await firstCard.productName.textContent();
         await firstCard.card.click();
+        
         return name;
     }
 }

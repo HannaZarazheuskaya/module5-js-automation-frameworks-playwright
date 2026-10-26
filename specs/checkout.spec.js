@@ -11,3 +11,20 @@
 //     Then the cart should contain no products
 //     And the message “The cart is empty. Nothing to display.” should be displayed
 
+import { test, expect } from "../pages/fixtures.js";
+
+test.describe('should remove a product from cart as a Guest user', async () => {
+    
+    test.beforeEach(async ({homePage, productDetailsPage, headerComponent}) => {
+        await homePage.open();
+        await homePage.selectFirstProductInStock();
+        await productDetailsPage.addItemsToCart(2);
+        await headerComponent.goToCart();
+    });
+
+    test('should remove a product from cart as a Guest user', async ({checkoutPage}) => {
+        await checkoutPage.removeFromCart();
+        await expect(checkoutPage.cartEmptyMsg).toBeVisible();
+        await expect(checkoutPage.productRows).toHaveCount(0);        
+    });
+});
