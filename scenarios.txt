@@ -1,0 +1,35 @@
+// #1 Feature: Log in
+//   Scenario: Log in with valid credentials
+//     Given the user is on the login page
+//     When the user logs in with valid credentials
+//     Then the user should be redirected to “My Account” page
+//     And the user's name should be displayed in the profile
+
+// #2 Feature: Product details page
+//   Scenario: Add products to cart from the product details page
+//     Given the user is on the home page
+//     When the user views a product detail page 
+//     And the user adds 3 items of this product to cart
+//     Then the cart icon should display 3 items
+//     When user opens cart
+//     Then the cart should contain 3 items of this product
+
+// #3 Feature: Cart
+//   Background: 
+//     Given the user is on the home page
+//     And the user opens a product detail page
+//     And the user adds the product to cart
+//     And the user opens the cart
+
+//   Scenario: Remove a product from the shopping cart
+//     Given the user is on the cart page 
+//     When the user removes the product from the cart
+//     Then the cart should contain no products
+//     And the message “The cart is empty. Nothing to display.” should be displayed
+
+// #4 Feature: Localization
+//   Scenario: Change localization to German
+//     Given the user is on the home page
+//     When the user switches the language to German
+//     Then the user should remain on the same page
+//     And the labels should be translated into German
