@@ -3,8 +3,7 @@
 //     Given the user is on the home page
 //     When the user views a product detail page 
 //     And the user adds 3 items of this product to cart
-//     Then the cart icon should display 3 items
-//     When user opens cart
+//     And user opens cart
 //     Then the cart should contain 3 items of this product
 
 import {test, expect} from '../pages/fixtures.js';
