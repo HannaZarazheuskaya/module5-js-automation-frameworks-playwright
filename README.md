@@ -77,7 +77,7 @@ module5-js-automation-frameworks-playwright/
 ├── pages/          page objects
 │   └── components/ page object components
 ├── specs/          tests
-└── testdata/       credentials, address
+├── testdata/       credentials, address
 ├── .gitignore
 ├── package-lock.json
 ├── package.json
