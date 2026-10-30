@@ -5,7 +5,7 @@
 //     Then the user should be redirected to “My Account” page
 //     And the user's name should be displayed in the profile
 
-import { test, expect } from '../pages/fixtures.js';
+import { test, expect } from '../fixtures/index.js';
 import users from '../testdata/users.json' with {type: 'json'};
 
 test('should log in a Customer with valid credentials successfully', async ({ page, homePage, headerComponent, loginPage }) => {

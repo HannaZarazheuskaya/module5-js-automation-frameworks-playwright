@@ -11,7 +11,7 @@
 //     Then the cart should contain no products
 //     And the message “The cart is empty. Nothing to display.” should be displayed
 
-import { test, expect } from "../pages/fixtures.js";
+import { test, expect } from "../fixtures/index.js";
 
 test.describe('should remove a product from cart as a Guest user', async () => {
     

@@ -6,7 +6,7 @@
 //     And user opens cart
 //     Then the cart should contain 3 items of this product
 
-import {test, expect} from '../pages/fixtures.js';
+import {test, expect} from '../fixtures/index.js';
 
 test('should add several product items to cart from product details page', async ({homePage, headerComponent, checkoutPage, productDetailsPage}) => {
     await homePage.open();

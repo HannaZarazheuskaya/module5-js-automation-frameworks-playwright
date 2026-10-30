@@ -1,13 +1,7 @@
-import {test as base} from '@playwright/test';
-import {LoginPage, HomePage, CheckoutPage, ProductDetailsPage} from './index.js';
-import { HeaderComponent } from './components/index.js';
+import { componentFixtures } from './componentFixture.js';
+import {LoginPage, HomePage, CheckoutPage, ProductDetailsPage} from '../pages/index.js';
 
-export const test = base.extend({
-    headerComponent: async ({page}, use) => {
-        const headerComponent = new HeaderComponent(page);
-        await use(headerComponent);
-    },
-
+export const pageFixtures = componentFixtures.extend({
     loginPage: async ({page}, use) => {
         const loginPage = new LoginPage(page);
         await use(loginPage);
@@ -28,5 +22,3 @@ export const test = base.extend({
         await use(checkoutPage);
     }
 });
-
-export {expect} from '@playwright/test';

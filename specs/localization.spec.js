@@ -5,7 +5,7 @@
 //     Then the user should remain on the same page
 //     And the labels should be translated into German
 
-import {test, expect} from '../pages/fixtures.js';
+import {test, expect} from '../fixtures/index.js';
 
 test('should translate header elements into German for a Guest user', async ({headerComponent, homePage}) => {
     
