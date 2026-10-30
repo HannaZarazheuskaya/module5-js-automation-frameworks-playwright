@@ -74,6 +74,7 @@ Here’s the list of actions which result in reduction of overall mark for a com
 ## Project structure
 ```
 module5-js-automation-frameworks-playwright/
+├── fixtures        fixtures for components and pages
 ├── pages/          page objects
 │   └── components/ page object components
 ├── specs/          tests
