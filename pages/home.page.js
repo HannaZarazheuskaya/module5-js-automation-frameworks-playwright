@@ -1,10 +1,11 @@
 import Page from './page.js';
-import ProductCardComponent from './components/productcard.component.js';
+import { HeaderComponent, ProductCardComponent } from './components/index.js';
 
 class HomePage extends Page {
     constructor(page) {
         super(page);
 
+        this.header = new HeaderComponent(page);
     }
 
     get productCards() {
