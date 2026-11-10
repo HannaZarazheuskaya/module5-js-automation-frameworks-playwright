@@ -68,17 +68,24 @@ Here’s the list of actions which result in reduction of overall mark for a com
     Then the user should remain on the same page
     And the labels should be translated into German
 
+### API Test Suite (Service Layer) for Restful-Booker API
+
+Automated API tests for the Restful-Booker service to verify CRUD test case:
+* **Authentication**: generate session token using credentials.
+* **Booking CRUD**: validate booking creation (`POST`), retrieval (`GET`), partial update (`PATCH`), deletion (`DELETE`).
+* **Data Verification**: payloads from `apiData.js` for checking HTTP statuses, headers and response body.
 
 </details>
 
 ## Project structure
 ```
 module5-js-automation-frameworks-playwright/
+├── api             api client and methods for backend interaction
 ├── fixtures        fixtures for components and pages
 ├── pages/          page objects
 │   └── components/ page object components
 ├── specs/          tests
-├── testdata/       credentials, address
+├── testdata/       credentials, address, api payload data
 ├── .gitignore
 ├── package-lock.json
 ├── package.json
@@ -89,6 +96,7 @@ module5-js-automation-frameworks-playwright/
 * **components**: components, such as header, sidebar and product card.
 * **specs**: test flow .
 * **testdata**: contains user and admin credentials.
+* **api** : api client and methods for backend interaction, api payload data.
 * **playwright.config.js**: base url, testIdAttribute, browsers, specs, retries and workers.
 
 
