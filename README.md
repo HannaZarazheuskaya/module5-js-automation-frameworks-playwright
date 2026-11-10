@@ -100,6 +100,29 @@ module5-js-automation-frameworks-playwright/
 * **playwright.config.js**: base url, testIdAttribute, browsers, specs, retries and workers.
 
 
+## Project Layers
+According to the task requirements, there are the following layers:
+
+### 1. Core Layer
+General framework functionality and test setups
+* **`pages/page.js`**: the base Page Object class.
+* **`fixtures folder`**: custom Playwright fixtures that help with dependency injection.
+
+### 2. Business Layer
+Business logic, locators:
+* **`pages/` and `pages/components/`**: page objects implementing the Page Object Model (POM).
+
+### 3. Service Layer
+Backend interaction and api client:
+* **`api/`**: API client implementing the service layer for backend requests.
+
+### 4. Tests Layer
+Contains test suites, test configurations, test data:
+* **`specs/`**: end-to-end ui scenarios, backend api test suite.
+* **`testdata/`**: test data.
+* **`playwright.config.js`**: framework configuration (retries, parallel workers).
+
+
 ## Tools 
 * **Core Framework:** Playwright v1.64.1
 * **Design Pattern:** Page Object Model
