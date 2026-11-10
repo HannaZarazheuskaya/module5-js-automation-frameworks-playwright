@@ -9,7 +9,7 @@ import { test } from '../fixtures/index.js';
 import users from '../testdata/users.json' with {type: 'json'};
 
 test('should log in a Customer with valid credentials successfully', async ({ homePage, loginPage, accountPage }) => {
-  const user = users.customer2;
+  const user = users.customer1;
   
   await homePage.open();
   await homePage.header.goToSignIn();
