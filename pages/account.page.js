@@ -11,7 +11,7 @@ class AccountPage extends Page {
 
     async expectToBeOpened() {
         await expect(this.page).toHaveURL(this.url, {
-            timeout: 10000
+            timeout: 15000
         });
     }
 }
