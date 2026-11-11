@@ -10,7 +10,7 @@ import {test, expect} from '../fixtures/index.js';
 
 test('should add several product items to cart from product details page', async ({homePage, checkoutPage, productDetailsPage}) => {
     await homePage.open();
-    const expectedProductName = await homePage.selectFirstProductInStock();
+    const expectedProductName = await homePage.selectProductInStockByIndex(0);
     await productDetailsPage.addItemsToCart(3);
 
     await productDetailsPage.header.goToCart();

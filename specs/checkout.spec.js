@@ -17,7 +17,7 @@ test.describe('should remove a product from cart as a Guest user', async () => {
     
     test.beforeEach(async ({homePage, productDetailsPage}) => {
         await homePage.open();
-        await homePage.selectFirstProductInStock();
+        await homePage.selectProductInStockByIndex(0);
         await productDetailsPage.addItemsToCart(2);
         await productDetailsPage.header.goToCart();
     });

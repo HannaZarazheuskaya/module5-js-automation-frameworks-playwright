@@ -6,26 +6,19 @@ class HomePage extends Page {
         super(page);
 
         this.header = new HeaderComponent(page);
+        this.cardsInStock = this.page.locator('.card:not(:has([data-testid="out-of-stock"]))');
     }
 
-    get productCards() {
-        return this.page.locator('.card');
-    }
 
-    async findFirstProductInStock() {
-        const firstCardInStock = this.page.locator('.card:not(:has([data-testid="out-of-stock"]))').first();
-        return new ProductCardComponent(firstCardInStock);
+    getCardInStockByIndex(index){
+        return new ProductCardComponent(this.cardsInStock.nth(index));
     }
+    
 
-    async selectFirstProductInStock() {
-        const firstCard = await this.findFirstProductInStock();
-        
-        if (!firstCard) {
-            throw new Error('There are no products in stock');
-        }
-        const name = await firstCard.productName.textContent();
-        await firstCard.card.click();
-        
+    async selectProductInStockByIndex(index) {
+        const productCard = this.getCardInStockByIndex(index);
+        const name = await productCard.productName.textContent();
+        await productCard.card.click();
         return name;
     }
 }
