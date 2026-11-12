@@ -7,12 +7,12 @@
 
 import {test, expect} from '../fixtures/index.js';
 
-test('should translate header elements into German for a Guest user', async ({headerComponent, homePage}) => {
+test('should translate header elements into German for a Guest user', async ({homePage}) => {
     
     await homePage.open();
-    await headerComponent.switchLanguage('de');
+    await homePage.header.switchLanguage('de');
     
-    await expect(headerComponent.homeLink).toHaveText('Start');
-    await expect(headerComponent.contactLink).toHaveText('Kontakt');
-    await expect(headerComponent.signInLink).toHaveText('Einloggen');
+    await expect(homePage.header.homeLink).toHaveText('Start');
+    await expect(homePage.header.contactLink).toHaveText('Kontakt');
+    await expect(homePage.header.signInLink).toHaveText('Einloggen');
 });

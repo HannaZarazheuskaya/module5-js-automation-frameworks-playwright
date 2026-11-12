@@ -1,3 +1,5 @@
+import { expect } from '@playwright/test'
+
 export default class HeaderComponent {
     
     constructor(page) {
@@ -25,4 +27,8 @@ export default class HeaderComponent {
         await this.langDropdown.click();
         await this.page.getByTestId(`lang-${langCode}`).click();
     }   
+
+    async expectUserMenuToHaveText(expectedName) {
+        await expect(this.userMenu).toHaveText(expectedName);
+    }
 }

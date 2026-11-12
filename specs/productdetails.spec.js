@@ -8,12 +8,12 @@
 
 import {test, expect} from '../fixtures/index.js';
 
-test('should add several product items to cart from product details page', async ({homePage, headerComponent, checkoutPage, productDetailsPage}) => {
+test('should add several product items to cart from product details page', async ({homePage, checkoutPage, productDetailsPage}) => {
     await homePage.open();
-    const expectedProductName = await homePage.selectFirstProductInStock();
+    const expectedProductName = await homePage.selectProductInStockByIndex(0);
     await productDetailsPage.addItemsToCart(3);
 
-    await headerComponent.goToCart();
+    await productDetailsPage.header.goToCart();
 
     const actualQuantity = await checkoutPage.getProductQuantity();
     await expect(actualQuantity).toBe(3);

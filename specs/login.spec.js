@@ -5,18 +5,18 @@
 //     Then the user should be redirected to “My Account” page
 //     And the user's name should be displayed in the profile
 
-import { test, expect } from '../fixtures/index.js';
+import { test } from '../fixtures/index.js';
 import users from '../testdata/users.json' with {type: 'json'};
 
-test('should log in a Customer with valid credentials successfully', async ({ page, homePage, headerComponent, loginPage }) => {
-  const user = users.customer2;
+test('should log in a Customer with valid credentials successfully', async ({ homePage, loginPage, accountPage }) => {
+  const user = users.customer1;
   
   await homePage.open();
-  await headerComponent.goToSignIn();
-  await page.waitForURL(loginPage.url);
+  await homePage.header.goToSignIn();
+  
+  await loginPage.waitForPageToLoad();
   await loginPage.login(user.email, user.password);
 
-  await expect(page).toHaveURL('/account');
-  await expect(headerComponent.userMenu).toHaveText(user.name);
-
+  await accountPage.expectToBeOpened();
+  await accountPage.header.expectUserMenuToHaveText(user.name);
 });

@@ -1,5 +1,6 @@
 import { componentFixtures } from './componentFixture.js';
-import {LoginPage, HomePage, CheckoutPage, ProductDetailsPage} from '../pages/index.js';
+import {LoginPage, HomePage, CheckoutPage, ProductDetailsPage, AccountPage} from '../pages/index.js';
+import HeaderComponent from '../pages/components/header.component.js';
 
 export const pageFixtures = componentFixtures.extend({
     loginPage: async ({page}, use) => {
@@ -20,5 +21,11 @@ export const pageFixtures = componentFixtures.extend({
     checkoutPage: async ({page}, use) => {
         const checkoutPage = new CheckoutPage(page);
         await use(checkoutPage);
+    },
+
+    accountPage: async ({page}, use) => {
+        const accountPage = new AccountPage(page);
+        await use(accountPage);
     }
+
 });
