@@ -80,12 +80,13 @@ Automated API tests for the Restful-Booker service to verify CRUD test case:
 ## Project structure
 ```
 module5-js-automation-frameworks-playwright/
-├── api             api client and methods for backend interaction
-├── fixtures        fixtures for components and pages
-├── pages/          page objects
-│   └── components/ page object components
-├── specs/          tests
-├── testdata/       credentials, address, api payload data
+├── api                 api client and methods for backend interaction
+├── fixtures            fixtures for components and pages
+├── pages/              page objects
+│   └── components/     page object components
+├── playwright-report/  html-report
+├── specs/              tests
+├── testdata/           credentials, address, api payload data
 ├── .gitignore
 ├── package-lock.json
 ├── package.json
@@ -94,6 +95,7 @@ module5-js-automation-frameworks-playwright/
 ```
 * **pageobjects**: page classes with locators as per playwright practices, getters and methods.
 * **components**: components, such as header, sidebar and product card.
+* **playwright-report**: html-report generated upon test run (added to .gitignore)
 * **specs**: test flow .
 * **testdata**: contains user and admin credentials.
 * **api** : api client and methods for backend interaction, api payload data.
@@ -124,14 +126,15 @@ Contains test suites, test configurations, test data:
 
 
 ## Tools 
-* **Core Framework:** Playwright v1.64.1
-* **Design Pattern:** Page Object Model
-* **Test Runner:** Playwright test runner
-* **Test Framework:** Playwright
-* **Assertions:** Playwright assertions (expect)
-* **Extention:** Playwright test for VSCode (to run tests and debug)
-* **Selectors:** CSS selectors, page.getByTestId(`data-testid`)
+* **Core Framework**: Playwright v1.64.1
+* **Design Pattern**: Page Object Model
+* **Test Runner**: Playwright test runner
+* **Test Framework**: Playwright
+* **Assertions**: Playwright assertions (expect)
+* **Extension**: Playwright test for VSCode (to run tests and debug)
+* **Selectors**: CSS selectors, page.getByTestId(`data-testid`)
 * **Browsers**: Google Chrome, Firefox, Webkit - Safari (parallel run)
+* **Reporters**: HTML-reporter, link built-in reporter
 
 ## Instructions to run 
 
@@ -164,3 +167,9 @@ To run tests in only one browser use:
 `npx playwright test --project=firefox`
 
 `npx playwright test --project=webkit`
+
+**5. Open last HTML report**
+
+To open the HTML report generated after the latest run:
+
+`npx playwright show-report`
