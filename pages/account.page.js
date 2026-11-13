@@ -6,13 +6,15 @@ class AccountPage extends Page {
     constructor(page) {
         super(page);
         this.url = '/account';
-        this.header = new HeaderComponent(page);    
+        this.header = new HeaderComponent(page);  
+        this.pageTitle = page.getByTestId('page-title');  
     }
 
     async expectToBeOpened() {
-        await expect(this.page).toHaveURL(this.url, {
+        await expect(this.pageTitle).toHaveText('My account', {
             timeout: 15000
         });
+        await expect(this.page).toHaveURL(this.url);
     }
 }
 
