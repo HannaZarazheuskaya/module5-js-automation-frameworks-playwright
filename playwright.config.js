@@ -1,7 +1,6 @@
 // @ts-check
 import { defineConfig, devices } from '@playwright/test';
 
-
 export default defineConfig({
   testDir: './specs',
   /* Run tests in files in parallel */
@@ -14,10 +13,13 @@ export default defineConfig({
   /* Reporter to use. See https://playwright.dev/docs/test-reporters */
   reporter: [
     ['list'],
-    ['html', {
-      outputFolder: 'playwright-report',
-      open: 'on-failure'
-    }],
+    [
+      'html',
+      {
+        outputFolder: 'playwright-report',
+        open: 'on-failure',
+      },
+    ],
   ],
 
   /* Shared settings for all the projects below. See https://playwright.dev/docs/api/class-testoptions. */
@@ -27,8 +29,8 @@ export default defineConfig({
 
     /* Collect trace when retrying the failed test. See https://playwright.dev/docs/trace-viewer */
     trace: 'on-first-retry',
-    headless: true,    
-    testIdAttribute: 'data-test'
+    headless: true,
+    testIdAttribute: 'data-test',
   },
 
   /* Configure projects for major browsers */

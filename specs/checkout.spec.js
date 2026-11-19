@@ -1,30 +1,29 @@
 // #3 Feature: Cart
-//   Background: 
+//   Background:
 //     Given the user is on the home page
 //     And the user opens a product detail page
 //     And the user adds the product to cart
 //     And the user opens the cart
 
 //   Scenario: Remove a product from the shopping cart
-//     Given the user is on the cart page 
+//     Given the user is on the cart page
 //     When the user removes the product from the cart
 //     Then the cart should contain no products
 //     And the message “The cart is empty. Nothing to display.” should be displayed
 
-import { test, expect } from "../fixtures/index.js";
+import { test, expect } from '../fixtures/index.js';
 
-test.describe('should remove a product from cart as a Guest user', async () => {
-    
-    test.beforeEach(async ({homePage, productDetailsPage}) => {
-        await homePage.open();
-        await homePage.selectProductInStockByIndex(0);
-        await productDetailsPage.addItemsToCart(2);
-        await productDetailsPage.header.goToCart();
-    });
+test.describe('should remove a product from cart as a Guest user', () => {
+  test.beforeEach(async ({ homePage, productDetailsPage }) => {
+    await homePage.open();
+    await homePage.selectProductInStockByIndex(0);
+    await productDetailsPage.addItemsToCart(2);
+    await productDetailsPage.header.goToCart();
+  });
 
-    test('should remove a product from cart as a Guest user', async ({checkoutPage}) => {
-        await checkoutPage.removeFromCart();
-        await expect(checkoutPage.cartEmptyMsg).toBeVisible();
-        await expect(checkoutPage.productRows).toHaveCount(0);        
-    });
+  test('should remove a product from cart as a Guest user', async ({ checkoutPage }) => {
+    await checkoutPage.removeFromCart();
+    await expect(checkoutPage.cartEmptyMsg).toBeVisible();
+    await expect(checkoutPage.productRows).toHaveCount(0);
+  });
 });

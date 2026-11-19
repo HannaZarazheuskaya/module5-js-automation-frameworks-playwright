@@ -6,14 +6,18 @@
 //     And the user's name should be displayed in the profile
 
 import { test } from '../fixtures/index.js';
-import users from '../testdata/users.json' with {type: 'json'};
+import users from '../testdata/users.json' with { type: 'json' };
 
-test('should log in a Customer with valid credentials successfully', async ({ homePage, loginPage, accountPage }) => {
+test('should log in a Customer with valid credentials successfully', async ({
+  homePage,
+  loginPage,
+  accountPage,
+}) => {
   const user = users.customer1;
-  
+
   await homePage.open();
   await homePage.header.goToSignIn();
-  
+
   await loginPage.waitForPageToLoad();
   await loginPage.login(user.email, user.password);
 
