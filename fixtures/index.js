@@ -1,4 +1,4 @@
-import {pageFixtures} from './pageFixture.js';
+import { pageFixtures } from './pageFixture.js';
 
 export const test = pageFixtures;
-export {expect} from '@playwright/test';
+export { expect } from '@playwright/test';

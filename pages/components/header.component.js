@@ -1,34 +1,33 @@
-import { expect } from '@playwright/test'
+import { expect } from '@playwright/test';
 
 export default class HeaderComponent {
-    
-    constructor(page) {
-        this.page = page;
+  constructor(page) {
+    this.page = page;
 
-        this.homeLink = page.getByTestId('nav-home');
-        this.contactLink = page.getByTestId('nav-contact');
-        this.signInLink = page.getByTestId('nav-sign-in');
-        this.cartLink = page.getByTestId('nav-cart');
-        
-        this.langDropdown = page.getByTestId('language-select');
+    this.homeLink = page.getByTestId('nav-home');
+    this.contactLink = page.getByTestId('nav-contact');
+    this.signInLink = page.getByTestId('nav-sign-in');
+    this.cartLink = page.getByTestId('nav-cart');
 
-        this.userMenu = page.getByTestId('nav-menu');
-    }
+    this.langDropdown = page.getByTestId('language-select');
 
-    async goToSignIn() {
-        await this.signInLink.click();
-    }
+    this.userMenu = page.getByTestId('nav-menu');
+  }
 
-    async goToCart() {
-        await this.cartLink.click();
-    }
+  async goToSignIn() {
+    await this.signInLink.click();
+  }
 
-    async switchLanguage(langCode) {
-        await this.langDropdown.click();
-        await this.page.getByTestId(`lang-${langCode}`).click();
-    }   
+  async goToCart() {
+    await this.cartLink.click();
+  }
 
-    async expectUserMenuToHaveText(expectedName) {
-        await expect(this.userMenu).toHaveText(expectedName);
-    }
+  async switchLanguage(langCode) {
+    await this.langDropdown.click();
+    await this.page.getByTestId(`lang-${langCode}`).click();
+  }
+
+  async expectUserMenuToHaveText(expectedName) {
+    await expect(this.userMenu).toHaveText(expectedName);
+  }
 }

@@ -1,1 +1,1 @@
-export {Booking} from './booking.js';
+export { Booking } from './booking.js';
