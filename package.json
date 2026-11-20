@@ -8,7 +8,7 @@
     "lint:fix": "eslint . --fix",
     "format": "prettier --write .",
     "format:check": "prettier --check .",
-    "test:ui": "npx playwright test --ignore specs/api.spec.js",
+    "test:ui": "npx playwright test --grep-invert specs/api.spec.js",
     "test:api": "npx playwright test specs/api.spec.js"
   },
   "keywords": [],
