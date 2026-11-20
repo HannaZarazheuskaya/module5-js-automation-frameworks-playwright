@@ -17,7 +17,7 @@ export default defineConfig({
       'html',
       {
         outputFolder: 'playwright-report',
-        open: 'on-failure',
+        open: 'never',
       },
     ],
   ],
